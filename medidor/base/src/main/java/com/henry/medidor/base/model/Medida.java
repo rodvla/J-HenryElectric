@@ -12,10 +12,16 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @Entity
+
 public class Medida {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Float valor;
     private Date fecha;
+
+    public Medida(float valor, Date fecha) {
+        this.valor = valor;
+        this.fecha = fecha;
+    }
 }

@@ -3,9 +3,7 @@ package com.henry.medidor.base.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -15,8 +13,8 @@ public class Medidor {
 
     @Id
     private Integer id;
-    private Integer number;
-    @ElementCollection
-    private List<Medida> medidas;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    public List<Medida> medidas;
 
 }

@@ -1,5 +1,6 @@
 package com.henry.receptor.base.controller;
 
+import com.henry.receptor.base.model.MedidaR;
 import com.henry.receptor.base.model.MedidorR;
 import com.henry.receptor.base.service.MedidorService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -32,6 +33,13 @@ public class MedidorController {
     public String addMedidor(@RequestBody MedidorR medidor) {
         MedidorR postMedidor = medidorService.addMedidor(medidor);
         return ("Medidor creado: " + postMedidor);
+    }
+
+    @PostMapping("/{idMedidor}/medida")
+    @Operation(summary = "Guardar una medida por id medidor")
+    public String addMedida(@RequestBody MedidaR medida, @PathVariable Integer idMedidor) {
+        medidorService.addMedidaToMedidor(idMedidor, medida);
+        return ("Medida agregada");
     }
 
     @PutMapping

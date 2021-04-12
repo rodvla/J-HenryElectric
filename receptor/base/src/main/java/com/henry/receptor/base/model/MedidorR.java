@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import java.util.List;
 
@@ -15,8 +16,6 @@ public class MedidorR {
 
     @Id
     private Integer id;
-    private Integer number;
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<MedidaR> medidas;
-
 }

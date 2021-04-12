@@ -1,5 +1,6 @@
 package com.henry.receptor.base.service;
 
+import com.henry.receptor.base.model.MedidaR;
 import com.henry.receptor.base.model.MedidorR;
 import com.henry.receptor.base.repository.MedidorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,9 @@ public class MedidorService {
     @Autowired
     private MedidorRepository medidorRepository;
 
+    @Autowired
+    private MedidaService medidaService;
+
     public List<MedidorR> getMedidores() {
         return medidorRepository.findAll();
     }
@@ -28,14 +32,9 @@ public class MedidorService {
     }
 
     public MedidorR editMedidor(MedidorR medido) {
-        MedidorR medidor = medidorRepository.findById(medido.getId()).orElseThrow(() -> new HttpClientErrorException(HttpStatus.NOT_FOUND));
+        MedidorR medidor = getMedidor(medido.getId());
         MedidorR editMedidor = new MedidorR();
         editMedidor.setId(medidor.getId());
-        if (medido.getNumber() != null) {
-            editMedidor.setNumber(medido.getNumber());
-        } else {
-            editMedidor.setNumber(medidor.getNumber());
-        }
         if (medido.getMedidas() != null) {
             editMedidor.setMedidas(medido.getMedidas());
         } else {
@@ -46,5 +45,13 @@ public class MedidorService {
 
     public void deleteMedidorByid(Integer id) {
         medidorRepository.deleteById(id);
+    }
+
+    public void addMedidaToMedidor(Integer idMedidor, MedidaR medida) {
+        MedidorR medidorR = getMedidor(idMedidor);
+        MedidaR medidaAdd = medidaService.addMedida(medida);
+        List<MedidaR> lista = medidorR.getMedidas();
+        lista.add(medidaAdd);
+        medidorRepository.save(medidorR);
     }
 }
