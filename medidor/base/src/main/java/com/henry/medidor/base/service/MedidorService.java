@@ -64,7 +64,7 @@ public class MedidorService {
         medidorRepository.save(medidorR);
     }
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 50)
     public void sendMedicion() throws IOException, InterruptedException {
         Medida medida;
         Float valor;
@@ -79,7 +79,7 @@ public class MedidorService {
             Date date2 = getMedidor(1234).getMedidas().get(getMedidor(1234).getMedidas().size()-1).getFecha();
             Calendar c = Calendar.getInstance();
             c.setTime(date2);
-            c.add(Calendar.MINUTE, 5);
+            c.add(Calendar.DATE, 1);
             date= c.getTime();
             medida = new Medida(valor, date);
         }
@@ -104,7 +104,6 @@ public class MedidorService {
                 .build();
 
         HttpResponse<?> response = client.send(request, HttpResponse.BodyHandlers.discarding());
-        System.out.println(response.statusCode());
 
     }
 }

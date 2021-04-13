@@ -21,5 +21,6 @@ public class MedidaR {
     private Integer id;
     private Float valor;
     private Date fecha;
+    private Integer idMedidor;
 
 }

@@ -2,6 +2,7 @@ package com.henry.receptor.base.service;
 
 import com.henry.receptor.base.model.MedidaR;
 import com.henry.receptor.base.model.MedidorR;
+import com.henry.receptor.base.repository.DomicilioRepository;
 import com.henry.receptor.base.repository.MedidorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -49,6 +50,7 @@ public class MedidorService {
 
     public void addMedidaToMedidor(Integer idMedidor, MedidaR medida) {
         MedidorR medidorR = getMedidor(idMedidor);
+        medida.setIdMedidor(idMedidor);
         MedidaR medidaAdd = medidaService.addMedida(medida);
         List<MedidaR> lista = medidorR.getMedidas();
         lista.add(medidaAdd);

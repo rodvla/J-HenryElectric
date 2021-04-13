@@ -1,5 +1,7 @@
 package com.henry.receptor.base.controller;
 
+import com.henry.receptor.base.model.BodyFechas;
+import com.henry.receptor.base.model.Consumo;
 import com.henry.receptor.base.model.MedidaR;
 import com.henry.receptor.base.service.MedidaService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -17,8 +19,19 @@ public class MedidaController {
 
     @GetMapping
     @Operation(summary = "Lista de medidas")
-    public List<MedidaR> getMedidores(){
+    public List<MedidaR> getMedidas(){
         return medidaService.getMedidas();
+    }
+
+    @PostMapping("/{idMedidor}/medidas")
+    @Operation(summary = "Lista de medidas entre fechas")
+    public List<MedidaR> getMedidasBetweenDates(@PathVariable Integer idMedidor, @RequestBody BodyFechas bodyFechas){
+        return medidaService.getMedidasByDate(idMedidor, bodyFechas);
+    }
+    @PostMapping("/{idMedidor}/consumo/{tarifa}")
+    @Operation(summary = "Consumo entre fechas")
+    public Consumo getConsumoBetweenDates(@PathVariable Integer idMedidor, @PathVariable Float tarifa, @RequestBody BodyFechas bodyFechas){
+        return medidaService.getConsumoByDate(idMedidor, bodyFechas, tarifa);
     }
 
     @GetMapping("/{id}")
