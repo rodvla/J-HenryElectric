@@ -13,6 +13,8 @@ public class Medidor {
 
     @Id
     private Integer id;
+    private String marca;
+    private String modelo;
 
     @ElementCollection(fetch = FetchType.EAGER)
     public List<Medida> medidas;

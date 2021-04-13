@@ -36,6 +36,16 @@ public class MedidorService {
         MedidorR medidor = getMedidor(medido.getId());
         MedidorR editMedidor = new MedidorR();
         editMedidor.setId(medidor.getId());
+        if (medido.getMarca() != null) {
+            editMedidor.setMarca(medido.getMarca());
+        } else {
+            editMedidor.setMarca(medidor.getMarca());
+        }
+        if (medido.getModelo() != null) {
+            editMedidor.setModelo(medido.getModelo());
+        } else {
+            editMedidor.setModelo(medidor.getModelo());
+        }
         if (medido.getMedidas() != null) {
             editMedidor.setMedidas(medido.getMedidas());
         } else {

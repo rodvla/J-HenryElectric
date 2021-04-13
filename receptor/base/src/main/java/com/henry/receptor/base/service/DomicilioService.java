@@ -139,7 +139,7 @@ public class DomicilioService {
 
         Consumo consumo = medidaService.getConsumoByDate(idMedidor,bodyFechas,domicilio.getTarifa());
 
-        Factura factura = new Factura(domicilio.getDireccion(),domicilio.getCliente(),idMedidor, consumo.getMedidaInicial(), consumo.getFechaInicial(), consumo.getMedidaFinal(),consumo.getFechaFinal(),consumo.getKwh(),consumo.getCosto());
+        Factura factura = new Factura(domicilio.getDireccion(),domicilio.getTarifa(),domicilio.getCliente(),idMedidor, consumo.getMedidaInicial(), consumo.getFechaInicial(), consumo.getMedidaFinal(),consumo.getFechaFinal(),consumo.getKwh(),consumo.getCosto());
 
         return factura;
 

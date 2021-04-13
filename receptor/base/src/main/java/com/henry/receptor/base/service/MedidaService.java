@@ -44,9 +44,9 @@ public class MedidaService {
         List<MedidaR> lista2 = medidaRepository.findByDateBetween(idMedidor, bodyFechas.getTo(), bodyFechas.getTo() + " 23:59:59.999");
         System.out.println(lista1);
         System.out.println(lista2);
-        Float consumo = lista2.get(lista2.size()-1).getValor() - lista1.get(0).getValor();
+        Float consumo = lista2.get(lista2.size()-1).getValor() - lista1.get(lista1.size()-1).getValor();
         Float costo = consumo * tarifa;
-        return new Consumo(consumo,costo,lista1.get(0).getFecha(),lista1.get(0).getValor(),lista2.get(lista2.size()-1).getFecha(),lista2.get(lista2.size()-1).getValor());
+        return new Consumo(consumo,costo,lista1.get(lista1.size()-1).getFecha(),lista1.get(lista1.size()-1).getValor(),lista2.get(lista2.size()-1).getFecha(),lista2.get(lista2.size()-1).getValor());
 
     }
 }

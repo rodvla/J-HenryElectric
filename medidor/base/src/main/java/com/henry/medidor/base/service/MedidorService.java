@@ -18,6 +18,7 @@ import java.net.http.HttpResponse;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 @Service
 public class MedidorService {
@@ -44,6 +45,16 @@ public class MedidorService {
         Medidor medidor = getMedidor(medido.getId());
         Medidor editMedidor = new Medidor();
         editMedidor.setId(medidor.getId());
+        if (medido.getMarca() != null) {
+            editMedidor.setMarca(medido.getMarca());
+        } else {
+            editMedidor.setMarca(medidor.getMarca());
+        }
+        if (medido.getModelo() != null) {
+            editMedidor.setModelo(medido.getModelo());
+        } else {
+            editMedidor.setModelo(medidor.getModelo());
+        }
         if (medido.getMedidas() != null) {
             editMedidor.setMedidas(medido.getMedidas());
         } else {
@@ -69,7 +80,7 @@ public class MedidorService {
         Medida medida;
         Float valor;
         Date date;
-
+        TimeZone.setDefault( TimeZone.getTimeZone("GMT"));
         if(getMedidor(1234).getMedidas().size() == 0){
             valor = 0.0f;
             date = new Date();
@@ -83,13 +94,6 @@ public class MedidorService {
             date= c.getTime();
             medida = new Medida(valor, date);
         }
-        Medida addMedida = medidaService.addMedida(medida);
-        Medidor medidor = getMedidor(1234);
-        medidor.getMedidas().add(medida);
-        medidorRepository.save(medidor);
-
-        System.out.println(valor);
-        System.out.println(addMedida);;
 
         HttpClient client = HttpClient.newBuilder().build();
 
@@ -105,5 +109,14 @@ public class MedidorService {
 
         HttpResponse<?> response = client.send(request, HttpResponse.BodyHandlers.discarding());
 
+        Medida addMedida = medidaService.addMedida(medida);
+        Medidor medidor = getMedidor(1234);
+        medidor.getMedidas().add(medida);
+        medidorRepository.save(medidor);
+
+
+        System.out.println("medida enviada: " + addMedida);
+
     }
+
 }

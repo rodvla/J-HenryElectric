@@ -16,6 +16,8 @@ public class MedidorR {
 
     @Id
     private Integer id;
+    private String marca;
+    private String modelo;
     @ElementCollection(fetch = FetchType.EAGER)
     private List<MedidaR> medidas;
 }

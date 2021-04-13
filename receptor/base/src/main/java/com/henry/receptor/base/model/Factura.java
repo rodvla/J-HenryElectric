@@ -11,6 +11,7 @@ import java.util.Date;
 public class Factura {
 
     private String direccion;
+    private Float tarifa;
     private Cliente cliente;
     private Integer numeroMedidor;
     private Float medicionInicial;

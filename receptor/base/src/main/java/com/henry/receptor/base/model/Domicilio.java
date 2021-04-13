@@ -19,11 +19,13 @@ public class Domicilio{
     private Float tarifa;
 
     @OneToOne(fetch = FetchType.EAGER) //todo el contenido, contrario LAZY
+    @JoinColumn(name = "client_id")
+    private Cliente cliente;
+
+    @OneToOne(fetch = FetchType.EAGER) //todo el contenido, contrario LAZY
     @JoinColumn(name = "medidorr_id")
     private MedidorR medidor;
 
-    @OneToOne(fetch = FetchType.EAGER) //todo el contenido, contrario LAZY
-    @JoinColumn(name = "client_id")
-    private Cliente cliente;
+
 
 }
