@@ -46,7 +46,7 @@ public class MedidaService {
         System.out.println(lista2);
         Float consumo = lista2.get(lista2.size()-1).getValor() - lista1.get(0).getValor();
         Float costo = consumo * tarifa;
-        return new Consumo(consumo,costo);
+        return new Consumo(consumo,costo,lista1.get(0).getFecha(),lista1.get(0).getValor(),lista2.get(lista2.size()-1).getFecha(),lista2.get(lista2.size()-1).getValor());
 
     }
 }

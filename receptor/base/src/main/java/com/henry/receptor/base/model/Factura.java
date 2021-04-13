@@ -8,16 +8,18 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
+public class Factura {
 
-public class Consumo {
-
-    private Float kwh;
-    private Float costo;
+    private String direccion;
+    private Cliente cliente;
+    private Integer numeroMedidor;
+    private Float medicionInicial;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd@HH:mm:ss")
-    private Date fechaInicial;
-    private Float medidaInicial;
+    private Date fechaMedidaInicial;
+    private Float medicionFinal;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd@HH:mm:ss")
-    private Date fechaFinal;
-    private Float medidaFinal;
+    private Date fechaMedidaFinal;
+    private Float consumoKwh;
+    private Float costoTotal;
 
 }

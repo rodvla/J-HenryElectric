@@ -24,12 +24,12 @@ public class MedidaController {
     }
 
     @PostMapping("/{idMedidor}/medidas")
-    @Operation(summary = "Lista de medidas entre fechas")
+    @Operation(summary = "Lista de medidas entre fechas por medidor")
     public List<MedidaR> getMedidasBetweenDates(@PathVariable Integer idMedidor, @RequestBody BodyFechas bodyFechas){
         return medidaService.getMedidasByDate(idMedidor, bodyFechas);
     }
     @PostMapping("/{idMedidor}/consumo/{tarifa}")
-    @Operation(summary = "Consumo entre fechas")
+    @Operation(summary = "Consumo entre fechas por medidor")
     public Consumo getConsumoBetweenDates(@PathVariable Integer idMedidor, @PathVariable Float tarifa, @RequestBody BodyFechas bodyFechas){
         return medidaService.getConsumoByDate(idMedidor, bodyFechas, tarifa);
     }

@@ -1,5 +1,6 @@
 package com.henry.receptor.base.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class MedidaR {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Float valor;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd@HH:mm:ss")
     private Date fecha;
     private Integer idMedidor;
 

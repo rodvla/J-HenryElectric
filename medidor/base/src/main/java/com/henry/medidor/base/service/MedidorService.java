@@ -79,7 +79,7 @@ public class MedidorService {
             Date date2 = getMedidor(1234).getMedidas().get(getMedidor(1234).getMedidas().size()-1).getFecha();
             Calendar c = Calendar.getInstance();
             c.setTime(date2);
-            c.add(Calendar.DATE, 1);
+            c.add(Calendar.HOUR, 12);
             date= c.getTime();
             medida = new Medida(valor, date);
         }

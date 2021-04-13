@@ -1,6 +1,6 @@
 package com.henry.receptor.base.controller;
 
-import com.henry.receptor.base.model.Domicilio;
+import com.henry.receptor.base.model.*;
 import com.henry.receptor.base.service.DomicilioService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +49,23 @@ public class DomicilioController {
         domicilioService.deleteDomicilioByid(id);
         return ("Domicilio Borrado con id: " + id);
     }
+
+    @GetMapping("/{id}/factura")
+    @Operation(summary = "Factura Mensual")
+    public Factura getFactura(@PathVariable Integer id, @RequestParam(value = "mes") String mes, @RequestParam(value = "año") String año) {
+        return domicilioService.getFactura(id,mes,año);
+    }
+
+    @PostMapping("/{id}/medidas")
+    @Operation(summary = "Lista de medidas entre fechas por Domicilio")
+    public List<MedidaR> getMedidasBetweenDates(@PathVariable Integer id, @RequestBody BodyFechas bodyFechas){
+        return domicilioService.getMedidasByDate(id, bodyFechas);
+    }
+    @PostMapping("/{id}/consumo")
+    @Operation(summary = "Consumo entre fechas por Domicilio")
+    public Consumo getConsumoBetweenDates(@PathVariable Integer id, @RequestBody BodyFechas bodyFechas){
+        return domicilioService.getConsumoByDate(id, bodyFechas);
+    }
+
+
 }

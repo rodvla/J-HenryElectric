@@ -15,6 +15,7 @@ public class Domicilio{
 
     @Id
     private Integer id;
+    private String direccion;
     private Float tarifa;
 
     @OneToOne(fetch = FetchType.EAGER) //todo el contenido, contrario LAZY
