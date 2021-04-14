@@ -3,6 +3,7 @@
 </p>
 
 # Java Henry electric light company.
+
 ![alt text](two-men-in-uniform-working.jpg "Title")
 
 Henry Luz es una compañia de distribucion de energia electrica con sede en las siguientes ciudades, Yugoslavia y
@@ -18,17 +19,17 @@ Nuestro medidor arranca en 0 cuando se instala (Tomemos este momento como 01/01/
 minutos, en ese domicilio se van a consumir 0.5 Kw/h, por lo tanto nuestro medidor nos enviara la siguiente
 información:
 
-| Fecha y Hora | Medición |
-| :---: | :---: | 
-| 01/01/2021 00:00:00 | 0.0 |
-| 01/01/2021 00:05:00 | 0.5 |
+|    Fecha y Hora     | Medición |
+| :-----------------: | :------: |
+| 01/01/2021 00:00:00 |   0.0    |
+| 01/01/2021 00:05:00 |   0.5    |
 
 Si nuestro domicilio consume 1.0 Kw/h entre 01/01/2021 00:05:00 y 01/01/2021 00:10:00 , a está última hora enviará la
 siguiente información:
 
-| Fecha y Hora | Medición |
-| :---: | :---: |
-| 01/01/2021 00:10:00 | 1.5 |
+|    Fecha y Hora     | Medición |
+| :-----------------: | :------: |
+| 01/01/2021 00:10:00 |   1.5    |
 
 La medición se va incrementando conforme el domicilio va consumiendo energía. Cada uno de los medidores va enviando
 información cada 5 minutos del número de la medición, pero no el consumo . El consumo debe ser calculado por nuestro Web
@@ -47,16 +48,16 @@ a la hora de generar una factura de consumo.
 
 Estas facturas deben tener la siguiente información:
 
-* Cliente
-* Domicilio
-* Numero de medidor
-* Medición inicial
-* Medición final
-* Consumo total en Kwh
-* Fecha y hora medición inicial
-* Fecha y hora medición final
-* Tipo de tarifa
-* Total a pagar (Consumo * Tarifa)
+- Cliente
+- Domicilio
+- Numero de medidor
+- Medición inicial
+- Medición final
+- Consumo total en Kwh
+- Fecha y hora medición inicial
+- Fecha y hora medición final
+- Tipo de tarifa
+- Total a pagar (Consumo \* Tarifa)
 
 Henry Electric Light Company ha contratado los servicios de dos empresas expertas en la realización de
 plataformas web. Con el fin de distribuir la carga de trabajo entre las dos empresas, una
@@ -65,27 +66,27 @@ compañía se encargará del desarrollo de una API REST para el mantenimiento de
 
 El portal de usuarios y aplicacion Android deberá permitir :
 
-* Consulta de facturas
-* Consulta de consumo por rango de fechas (el usuario va a ingresar un rango de fechas y quiere saber cuánto consumió en ese periodo en Kwh y dinero)
-* Consulta de mediciones por rango de fechas 
+- Consulta de facturas
+- Consulta de consumo por rango de fechas (el usuario va a ingresar un rango de fechas y quiere saber cuánto consumió en ese periodo en Kwh y dinero)
+- Consulta de mediciones por rango de fechas
 
 Desde el sistema de Backoffice, se debe permitir:
 
-* Alta, baja y modificación de domicilios, medidores y clientes.
-* Consulta de facturas impagas por cliente.
-* Consulta 10 clientes más consumidores
-* Consulta de mediciones de un domicilio en particular
+- Alta, baja y modificación de domicilios, medidores y clientes.
+- Consulta de facturas impagas por cliente.
+- Consulta 10 clientes más consumidores
+- Consulta de mediciones de un domicilio en particular
 
-
-
-Recuerden cada medidor nos enviará Número de medidor, medición, fecha y hora de la medición. 
+Recuerden cada medidor nos enviará Número de medidor, medición, fecha y hora de la medición.
 
 Para la completitud del TP se considera :
-* Seguir los fundamentos de API REST.
-* División en capas mostradas en clase (Controller, Service, Persistence/Dao).
-* Completar la funcionalidad del mismo.
-* Recuerden aplicar los conceptos aprendidos durante el curso, los buenos usos de la herencia,polimorfismo, sobrecarga de los metodos,
-utilizar el circuit breaker en caso que el medidor no pueda enviar la información al servidor establecer un fallback que almacene momentaneamente el consumo hasta que se pueda comunicar con el servicio.
-  
 
+- Seguir los fundamentos de API REST.
+- División en capas mostradas en clase (Controller, Service, Persistence/Dao).
+- Completar la funcionalidad del mismo.
+- Recuerden aplicar los conceptos aprendidos durante el curso, los buenos usos de la herencia,polimorfismo, sobrecarga de los metodos,
+  utilizar el circuit breaker en caso que el medidor no pueda enviar la información al servidor establecer un fallback que almacene momentaneamente el consumo hasta que se pueda comunicar con el servicio.
 
+# Solution Preview
+
+![alt text](factura.jpg)
