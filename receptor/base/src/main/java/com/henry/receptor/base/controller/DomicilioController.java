@@ -4,7 +4,6 @@ import com.henry.receptor.base.model.*;
 import com.henry.receptor.base.service.DomicilioService;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -66,6 +65,5 @@ public class DomicilioController {
     public Consumo getConsumoBetweenDates(@PathVariable Integer id, @RequestBody BodyFechas bodyFechas){
         return domicilioService.getConsumoByDate(id, bodyFechas);
     }
-
 
 }

@@ -2,7 +2,6 @@ package com.henry.receptor.base.service;
 
 import com.henry.receptor.base.model.MedidaR;
 import com.henry.receptor.base.model.MedidorR;
-import com.henry.receptor.base.repository.DomicilioRepository;
 import com.henry.receptor.base.repository.MedidorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

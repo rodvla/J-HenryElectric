@@ -5,12 +5,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-
-
 @Data
 @NoArgsConstructor
 @Entity
-
 public class Domicilio{
 
     @Id
@@ -25,7 +22,5 @@ public class Domicilio{
     @OneToOne(fetch = FetchType.EAGER) //todo el contenido, contrario LAZY
     @JoinColumn(name = "medidorr_id")
     private MedidorR medidor;
-
-
 
 }

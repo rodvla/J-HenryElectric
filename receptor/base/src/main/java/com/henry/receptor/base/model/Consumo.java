@@ -8,7 +8,6 @@ import java.util.Date;
 
 @Data
 @AllArgsConstructor
-
 public class Consumo {
 
     private Float kwh;

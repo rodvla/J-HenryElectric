@@ -9,10 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -42,8 +38,7 @@ public class MedidaService {
 
         List<MedidaR> lista1 = medidaRepository.findByDateBetween(idMedidor, bodyFechas.getFrom(), bodyFechas.getFrom() + " 23:59:59.999");
         List<MedidaR> lista2 = medidaRepository.findByDateBetween(idMedidor, bodyFechas.getTo(), bodyFechas.getTo() + " 23:59:59.999");
-        System.out.println(lista1);
-        System.out.println(lista2);
+
         Float consumo = lista2.get(lista2.size()-1).getValor() - lista1.get(lista1.size()-1).getValor();
         Float costo = consumo * tarifa;
         return new Consumo(consumo,costo,lista1.get(lista1.size()-1).getFecha(),lista1.get(lista1.size()-1).getValor(),lista2.get(lista2.size()-1).getFecha(),lista2.get(lista2.size()-1).getValor());

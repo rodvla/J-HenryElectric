@@ -2,11 +2,11 @@ package com.henry.receptor.base.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
+
 import java.util.List;
 
 @Data

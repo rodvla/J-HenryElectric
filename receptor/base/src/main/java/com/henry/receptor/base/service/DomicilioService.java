@@ -63,7 +63,7 @@ public class DomicilioService {
         String diaFinal = null;
         String mesAnterior = null;
         switch (mes) {
-            case "01"://,"03","05","07","08","10","12":
+            case "01":
                 diaInicial = "31";
                 diaFinal = "31";
                 mesAnterior = "12";
@@ -98,17 +98,17 @@ public class DomicilioService {
                 break;
             case "06":
                 diaInicial = "31";
-                diaFinal = "28";
+                diaFinal = "30";
                 mesAnterior = "05";
                 break;
             case "07":
-                diaInicial = "31";
-                diaFinal = "28";
+                diaInicial = "30";
+                diaFinal = "31";
                 mesAnterior = "06";
                 break;
             case "08":
                 diaInicial = "31";
-                diaFinal = "28";
+                diaFinal = "31";
                 mesAnterior = "07";
                 break;
             case "09":
